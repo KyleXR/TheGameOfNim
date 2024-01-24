@@ -20,6 +20,14 @@ body {
 h1 {
     font-family: 'Press Start 2P';
 }
+
+input {
+    font-family: 'Press Start 2P';
+}
+
+label {
+    font-family: 'Press Start 2P';
+}
 .press-start 2p-regular {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;

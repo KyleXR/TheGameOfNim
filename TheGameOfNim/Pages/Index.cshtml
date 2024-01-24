@@ -1,9 +1,11 @@
 ﻿@page
 @using TheGameOfNim.Pages.Shared; 
-@model IndexModel
+@model Nin
 @{
     ViewData["Title"] = "The Game of Nim";
-    Nin nim = new Nin();
+    NimController nim = new NimController();
+    //Nin nin = new Nin();
+
 }
 
 
@@ -16,20 +18,42 @@
 <div class="text-center" style="width:500px;height:750px;background:#63BDFF;margin-top:50px; margin-left:400px">
     <h1 class="display-4" style="color: white;">The Game Of Nim</h1>
     <form>
-
         @for(int i = 0; i < nim.rows.Length; i++)
         {
             int num = 0;
+            @*This is for displaying the rows of the game*@
             while(num < nim.rows[i])
             {
-                <img src="~/img/Match.png"/>
+                <img src="~/img/Match.png" style="margin:5px;"/>
                 num++;
             }
-            <input id="AllowRating" type="checkbox" style="width:50px;height:50px;background:grey; margin-left:100px" onchange="" />
+            switch(i)
+            {
+                @*These are the check boxes, they should also set the value of selectedRow variable *@
+                case 0:
+                    <input id="AllowRating" type="checkbox" style="width:50px;height:50px;background:grey;" onchecked="@nim.selectedRow = 0" />
+                    nim.selectedRow = 0;
+                    break;
+                case 1:
+                    <input id="AllowRating" type="checkbox" style="width:50px;height:50px;background:grey;" onchecked="@nim.selectedRow = 1" />
+                    nim.selectedRow = 1;
+                    break;
+                case 2:
+                    <input id="AllowRating" type="checkbox" style="width:50px;height:50px;background:grey;" onchecked="@nim.selectedRow = 2" />
+                    nim.selectedRow = 2;
+                    break;
+                case 3:
+                    <input id="AllowRating" type="checkbox" style="width:50px;height:50px;background:grey;" onchecked="@nim.selectedRow = 3" />
+                    nim.selectedRow = 3;
+                    break;
+            }
+            <br />
             <br />
         }
 
-        <input accept="int" onsubmit="nim.takeFromRows(2,3)"/> <!-- The input for numbs -->
+        @*This is a textbox for the player to enter there designated number they would like to take from the specified row*@
+        <label asp-for="@nim.removeNum" style="color:white; font:20px">Take Amount:</label>
+        <input asp-for="@nim.removeNum" value="@nim.removeNum" type="text" name="removeNum" style="width:50px;height:50px;" class="text-center" onsubmit="@nim.takeFromRows()" />
 
     </form>
 </div>

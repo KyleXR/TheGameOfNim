@@ -1,30 +1,17 @@
-﻿using System.Globalization;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Globalization;
 
 namespace TheGameOfNim.Pages.Shared{
 
-    public class Nin{
-
-        public int[] rows = { 1, 3, 5, 7 };
-
-        private bool canTake(int numToSubtract, int rowSelected){
-
-            if (rows[rowSelected] == 0) return false;
-
-            if (rows[rowSelected - numToSubtract] >= 0) return true;
-
-            return false;
-
-        }
-
-        public void takeFromRows(int rowSelected, int numToSubtract){ 
+    public class Nin
+    {
+        //Variables that we want to use should go it here
         
-            if(canTake(numToSubtract, rowSelected) == true){
 
-                rows[rowSelected] -= numToSubtract;
-                           
-            }
-        
-        }
-
+        //public Nin(int selectedRow = 0, int removeNum = 0)
+        //{
+        //    this.selectedRow = selectedRow;
+        //    this.removeNum = removeNum;
+        //}
     } 
 }
