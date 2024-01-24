@@ -1,7 +1,9 @@
 ﻿@page
+@using TheGameOfNim.Pages.Shared; 
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "The Game of Nim";
+    Nin nim = new Nin();
 }
 
 
@@ -13,5 +15,17 @@
 
 <div class="text-center" style="width:500px;height:750px;background:#63BDFF;margin-top:50px; margin-left:400px">
     <h1 class="display-4" style="color: white;">The Game Of Nim</h1>
-    
+    <form>
+        @for(int i = 0; i <= nim.rows.Length - 1; i++)
+        {
+            int num = 0;
+            while(num < nim.rows[i])
+            {
+                <img src="~/img/Match.png"/>
+                num++;
+            }
+            <input id="AllowRating" type="checkbox" style="width:50px;height:50px;background:grey; margin-left:100px" onchange="" />
+            <br />
+        }
+    </form>
 </div>
