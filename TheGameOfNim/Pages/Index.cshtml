@@ -16,7 +16,8 @@
 <div class="text-center" style="width:500px;height:750px;background:#63BDFF;margin-top:50px; margin-left:400px">
     <h1 class="display-4" style="color: white;">The Game Of Nim</h1>
     <form>
-        @for(int i = 0; i <= nim.rows.Length - 1; i++)
+
+        @for(int i = 0; i < nim.rows.Length; i++)
         {
             int num = 0;
             while(num < nim.rows[i])
@@ -27,5 +28,8 @@
             <input id="AllowRating" type="checkbox" style="width:50px;height:50px;background:grey; margin-left:100px" onchange="" />
             <br />
         }
+
+        <input accept="int" onsubmit="nim.takeFromRows(2,3)"/> <!-- The input for numbs -->
+
     </form>
 </div>
