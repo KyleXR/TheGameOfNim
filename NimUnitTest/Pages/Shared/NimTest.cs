@@ -33,15 +33,6 @@ namespace TheGameOfNim.Pages.Shared.Tests
             Assert.IsFalse(actual);
         }
 
-        /*[DataTestMethod]
-        [DataRow(null, null)]
-        public void NumbersAndRowsMustNotBeEmpty(int numToSubtract, int rowSelected)
-        {
-            Nin test = new Nin();
-
-
-        }*/
-
         [DataTestMethod]
         [DataRow(0, 1)]
         [DataRow(1, 2)]
@@ -59,10 +50,12 @@ namespace TheGameOfNim.Pages.Shared.Tests
 
             for(int i = 0; i < expected.Length; i++)
             {
-                Console.WriteLine(expected[i]);
-                Console.WriteLine(actual[i]);
+                //Console.WriteLine(expected[i]);
+                //Console.WriteLine(actual[i]);
                 Assert.AreEqual(expected[i], actual[i]);
             }
         }
+
+        
     }
 }
